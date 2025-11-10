@@ -7,7 +7,6 @@ async function getUsersData() {
     return users
 }
 
-
 async function dataUserSeparation() {
     const dataUserAll =  await getUsersData()
     if(dataUserAll) {
@@ -39,5 +38,20 @@ function createUserCard(dataImage, dataName, dataNumber) {
     container.appendChild(cardContato)
     console.log(getUsersData())
 }
+
+function accessToCreateNewUser(){
+    const main = document.querySelector(".card-show")
+    main.className = "form-show"
+}
+function cancelCreateNewUser(){
+    const main = document.querySelector(".form-show")
+    main.className = "card-show"
+}
+
+const btnCreateNewUser = document.querySelector("#novo-contato")
+const btnCancel = document.querySelector('#cancelar')
+
+btnCreateNewUser.addEventListener('click', accessToCreateNewUser)
+btnCancel.addEventListener('click', cancelCreateNewUser)
 
 dataUserSeparation()
