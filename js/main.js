@@ -43,9 +43,18 @@ function accessToCreateNewUser(){
     const main = document.querySelector(".card-show")
     main.className = "form-show"
 }
+
 function cancelCreateNewUser(){
     const main = document.querySelector(".form-show")
     main.className = "card-show"
+}
+
+async function createNewUser() {
+    const name = document.querySelector("#nome")
+    const email = document.querySelector("#email")
+    const celular = document.querySelector('#celular')
+    const endereco = document.querySelector('#endereco')
+    const cidade = document.querySelector('#cidade')
 }
 
 const btnCreateNewUser = document.querySelector("#novo-contato")
