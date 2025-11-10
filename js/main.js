@@ -2,4 +2,42 @@
 
 import { lerContatos } from "./contatos.js"
 
-console.log( await lerContatos())
+async function getUsersData() {
+    const users = await lerContatos()
+    return users
+}
+
+
+async function dataUserSeparation() {
+    const dataUserAll =  await getUsersData()
+    if(dataUserAll) {
+        for(let i = 0; i<= dataUserAll.length; i++){
+            createUserCard(dataUserAll[i].foto, dataUserAll[i].nome, dataUserAll[i].celular)
+        }
+    } else {
+        console.log('Nenhum dado encontrado')
+    }
+}
+
+function createUserCard(dataImage, dataName, dataNumber) {
+    const cardContato = document.createElement('div') 
+    const image = document.createElement('img')
+    const userName = document.createElement('h2')
+    const number = document.createElement('p')
+
+    cardContato.className = "card-contato"
+    image.src = dataImage
+    userName.textContent = dataName
+    number.textContent = dataNumber
+
+    cardContato.appendChild(image)
+    cardContato.appendChild(userName)
+    cardContato.appendChild(number)
+
+    const container = document.querySelector(".container")
+
+    container.appendChild(cardContato)
+    console.log(getUsersData())
+}
+
+dataUserSeparation()
